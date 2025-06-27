@@ -41,10 +41,10 @@ If you find a bug, blame the robots, not the human. 😉
 
 ## Download
 
-- [Download for Windows (.exe)](./dist/video-compressor-1.0.0-x64-setup.exe)
-- [Download for Mac (.dmg)](./dist/video-compressor-1.0.0-arm64.dmg)
+- [Download for Windows (.exe)](https://github.com/yiddishCoder/video-compressor/releases/download/v1.0.0/video-compressor-1.0.0-x64-setup.exe)
+- [Download for Mac (.dmg)](https://github.com/yiddishCoder/video-compressor/releases/download/v1.0.0/video-compressor-1.0.0-arm64.dmg)
 
-*(If the links don't work, check the `/dist` folder in the project for the latest builds.)*
+*These are the official release downloads from GitHub.*
 
 ---
 
