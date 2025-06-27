@@ -1,4 +1,5 @@
 node_modules
+dist
 out
 .DS_Store
 .eslintcache
@@ -6,8 +7,7 @@ out
 
 # Exclude unpacked builds, keep only packed executables
 dist/*-unpacked/
-dist/*-unpacked
 dist/mac-*/
 dist/win-*/
-dist/win-*
 dist/linux-*/
+

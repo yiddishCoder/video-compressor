@@ -1,8 +1,0 @@
-version: 1.0.0
-files:
-  - url: video-compressor-1.0.0-arm64.dmg
-    sha512: AqKdmU0pnLStnVuycDOLAstakMPw6f700yCQ+5KWmryaEbzJh8dB+2EVHoe1xmAt0VNhw2eptf2yGVp1vxnoFg==
-    size: 207099473
-path: video-compressor-1.0.0-arm64.dmg
-sha512: AqKdmU0pnLStnVuycDOLAstakMPw6f700yCQ+5KWmryaEbzJh8dB+2EVHoe1xmAt0VNhw2eptf2yGVp1vxnoFg==
-releaseDate: '2025-06-27T15:06:08.812Z'
