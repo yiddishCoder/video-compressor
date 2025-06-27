@@ -1,0 +1,62 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="playGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle with shadow -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGradient)" stroke="#ffffff" stroke-width="8"/>
+  
+  <!-- Video frame (outer) -->
+  <rect x="120" y="140" width="272" height="232" rx="16" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.95"/>
+  
+  <!-- Video frame (inner) -->
+  <rect x="140" y="160" width="232" height="192" rx="8" fill="#ffffff" opacity="0.15"/>
+  
+  <!-- Play button triangle -->
+  <polygon points="200,220 200,292 268,256" fill="url(#playGradient)" opacity="0.95"/>
+  
+  <!-- Encoding gear (top right) -->
+  <g transform="translate(320, 180)">
+    <circle cx="0" cy="0" r="24" fill="url(#gearGradient)" opacity="0.95"/>
+    <circle cx="0" cy="0" r="8" fill="#ffffff"/>
+    <!-- Gear teeth -->
+    <rect x="-2" y="-32" width="4" height="8" fill="#ffffff" opacity="0.9"/>
+    <rect x="-2" y="24" width="4" height="8" fill="#ffffff" opacity="0.9"/>
+    <rect x="-32" y="-2" width="8" height="4" fill="#ffffff" opacity="0.9"/>
+    <rect x="24" y="-2" width="8" height="4" fill="#ffffff" opacity="0.9"/>
+    <rect x="-22" y="-22" width="6" height="4" fill="#ffffff" opacity="0.7" transform="rotate(45)"/>
+    <rect x="16" y="16" width="6" height="4" fill="#ffffff" opacity="0.7" transform="rotate(45)"/>
+    <rect x="-22" y="18" width="6" height="4" fill="#ffffff" opacity="0.7" transform="rotate(-45)"/>
+    <rect x="16" y="-20" width="6" height="4" fill="#ffffff" opacity="0.7" transform="rotate(-45)"/>
+  </g>
+  
+  <!-- Compression arrows (bottom left) -->
+  <g transform="translate(180, 320)">
+    <!-- Left arrow -->
+    <path d="M-20,0 L-8,0 L-8,-8 L0,0 L-8,8 L-8,0" fill="#ffffff" opacity="0.9"/>
+    <!-- Right arrow -->
+    <path d="M8,0 L20,0 L20,8 L12,0 L20,-8 L20,0" fill="#ffffff" opacity="0.9"/>
+    <!-- Center dot -->
+    <circle cx="0" cy="0" r="3" fill="#ffffff" opacity="0.95"/>
+  </g>
+  
+  <!-- Progress bar (bottom) -->
+  <rect x="160" y="380" width="192" height="8" rx="4" fill="#ffffff" opacity="0.4"/>
+  <rect x="160" y="380" width="144" height="8" rx="4" fill="url(#playGradient)" opacity="0.9"/>
+  
+  <!-- Small encoding dots -->
+  <circle cx="200" cy="400" r="3" fill="#ffffff" opacity="0.8"/>
+  <circle cx="220" cy="400" r="3" fill="#ffffff" opacity="0.6"/>
+  <circle cx="240" cy="400" r="3" fill="#ffffff" opacity="0.4"/>
+</svg> 
