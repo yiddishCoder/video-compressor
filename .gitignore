@@ -4,10 +4,4 @@ out
 .DS_Store
 .eslintcache
 *.log*
-
-# Exclude unpacked builds, keep only packed executables
-dist/*-unpacked/
-dist/mac-*/
-dist/win-*/
-dist/linux-*/
-
+bin/

@@ -3,6 +3,8 @@
 **Video Compressor** is a minimal, no-nonsense desktop app for compressing and converting your video files.  
 It's designed to do one thing—make your videos smaller and more shareable—without any clutter or confusion.
 
+This app uses FFmpeg behind the scenes to provide a simple, focused video compression experience for users who prefer a graphical interface.
+
 ---
 
 ## What does it do?
@@ -41,8 +43,8 @@ If you find a bug, blame the robots, not the human. 😉
 
 ## Download
 
-- [Download for Windows (.exe)](https://github.com/yiddishCoder/video-compressor/releases/download/v1.0.0/video-compressor-1.0.0-x64-setup.exe)
-- [Download for Mac (.dmg)](https://github.com/yiddishCoder/video-compressor/releases/download/v1.0.0/video-compressor-1.0.0-arm64.dmg)
+- [Download for Windows (.exe)](https://github.com/yiddishCoder/video-compressor/releases/latest/download/video-compressor-win-x64-setup.exe)
+- [Download for Mac (.dmg)](https://github.com/yiddishCoder/video-compressor/releases/latest/download/video-compressor-mac-arm64.dmg)
 
 *These are the official release downloads from GitHub.*
 

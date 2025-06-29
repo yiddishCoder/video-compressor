@@ -1,6 +1,6 @@
 {
   "name": "video-compressor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modern Electron application for video compression and re-encoding using FFmpeg",
   "main": "./out/main/index.js",
   "author": "Video Compressor Team",
@@ -14,22 +14,20 @@
     "start": "electron-vite preview",
     "dev": "electron-vite dev",
     "build": "npm run typecheck && electron-vite build",
-    "postinstall": "electron-builder install-app-deps",
+    "postinstall": "electron-builder install-app-deps && npm run download-binaries",
+    "download-binaries": "node scripts/download-binaries.js",
     "build:win": "npm run build && electron-builder --win --x64",
     "build:mac": "npm run build && electron-builder --mac --arm64",
     "build:all": "npm run build && electron-builder --win --x64 --mac --arm64"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
-    "@electron-toolkit/utils": "^4.0.0",
-    "ffmpeg-static": "^5.2.0",
-    "ffprobe-static": "^3.1.0"
+    "@electron-toolkit/utils": "^4.0.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "3.0.0",
     "@electron-toolkit/eslint-config-ts": "^3.0.0",
     "@electron-toolkit/tsconfig": "^1.0.1",
-    "@types/ffprobe-static": "^2.0.3",
     "@types/node": "^22.14.1",
     "@vitejs/plugin-vue": "^5.2.3",
     "electron": "^35.1.5",

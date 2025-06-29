@@ -1,8 +1,5 @@
 import { spawn } from 'child_process'
-
-import ffmpegRaw from 'ffmpeg-static'
-const ffmpeg = ffmpegRaw?.replace?.('app.asar', 'app.asar.unpacked') ?? ffmpegRaw
-
+import { getFfmpegPath } from './binary-utils'
 
 import { parseFfmpegProgress } from './video-utils'
 import { statSync,/*  existsSync */ } from 'fs'
@@ -50,14 +47,14 @@ export function encodeVideo(
     outputPath
   ]
 
-  console.log('FFmpeg command:', ffmpeg, args.join(' '))
+  console.log('FFmpeg command:', getFfmpegPath(), args.join(' '))
 
   // Debug: Log the ffmpeg path and check if it exists
-  // console.log('FFmpeg path:', ffmpeg)
-  // console.log('FFmpeg exists:', existsSync(ffmpeg as string))
-  // console.log('FFmpeg is file:', existsSync(ffmpeg as string) && statSync(ffmpeg as string).isFile())
+  // console.log('FFmpeg path:', getFfmpegPath())
+  // console.log('FFmpeg exists:', existsSync(getFfmpegPath() as string))
+  // console.log('FFmpeg is file:', existsSync(getFfmpegPath() as string) && statSync(getFfmpegPath() as string).isFile())
 
-  const process = spawn(ffmpeg as string, args)
+  const process = spawn(getFfmpegPath() as string, args)
   let totalStderr = ''
   let wasCancelled = false
   let startTime = Date.now()

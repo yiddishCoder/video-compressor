@@ -1,7 +1,7 @@
 import { spawn } from 'child_process'
-import { path as ffprobeStaticPath } from 'ffprobe-static'
+import { getFfprobePath } from './binary-utils'
 
-const ffprobePath = ffprobeStaticPath.replace('app.asar', 'app.asar.unpacked')
+const ffprobe = getFfprobePath()
 // import { existsSync } from 'fs'
 
 export interface VideoInfo {
@@ -26,7 +26,7 @@ export async function getVideoInfo(filePath: string): Promise<VideoInfo> {
     filePath
   ]
 
-  const process = spawn(ffprobePath, args)
+  const process = spawn(ffprobe, args)
   let stdout = ''
   let stderr = ''
 
