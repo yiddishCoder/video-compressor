@@ -6,6 +6,7 @@ interface VideoInfo {
   height: number
   duration: number
   aspectRatio: number
+  fileSize: number
 }
 
 interface Props {
@@ -31,6 +32,14 @@ const formatDuration = (seconds: number): string => {
   const minutes = Math.floor((seconds % 3600) / 60)
   const secs = Math.floor(seconds % 60)
   return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
+}
+
+const formatFileSize = (bytes: number): string => {
+  if (bytes === 0) return '0 B'
+  const k = 1024
+  const sizes = ['B', 'KB', 'MB', 'GB']
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
 }
 
 const handleFileSelect = async () => {
@@ -134,7 +143,8 @@ const loadVideoInfo = async (filePath: string) => {
             </div>
             <p v-else-if="videoInfo" class="file-meta">
               {{ videoInfo.width }}×{{ videoInfo.height }} • 
-              {{ formatDuration(videoInfo.duration) }}
+              {{ formatDuration(videoInfo.duration) }} • 
+              {{ formatFileSize(videoInfo.fileSize) }}
             </p>
           </div>
         </div>

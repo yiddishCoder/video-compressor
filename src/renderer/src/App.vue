@@ -11,6 +11,7 @@ interface VideoInfo {
   height: number
   duration: number
   aspectRatio: number
+  fileSize: number
 }
 
 interface ResolutionOption {
@@ -32,6 +33,7 @@ interface EncodingResult {
   fileSize: number
   resolution: string
   duration: number
+  originalFileSize: number
 }
 
 const state = reactive({
@@ -131,7 +133,8 @@ const startEncoding = async () => {
       targetHeight: state.selectedResolution.height,
       preset: presetLabels[state.selectedPreset],
       crf: state.selectedCrf,
-      duration: state.videoInfo.duration
+      duration: state.videoInfo.duration,
+      originalFileSize: state.videoInfo.fileSize
     })
 
     if (result.success && result.result) {

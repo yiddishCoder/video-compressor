@@ -6,6 +6,7 @@ interface Props {
     fileSize: number
     resolution: string
     duration: number
+    originalFileSize: number
   } | null
 }
 
@@ -23,6 +24,17 @@ const formatFileSize = (bytes: number): string => {
   const sizes = ['B', 'KB', 'MB', 'GB']
   const i = Math.floor(Math.log(bytes) / Math.log(k))
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
+}
+
+const getCompressionRatio = (originalSize: number, compressedSize: number): string => {
+  if (originalSize === 0) return '0%'
+  const ratio = ((originalSize - compressedSize) / originalSize) * 100
+  return ratio.toFixed(1) + '%'
+}
+
+const getSizeReduction = (originalSize: number, compressedSize: number): string => {
+  const reduction = originalSize - compressedSize
+  return formatFileSize(reduction)
 }
 
 const formatDuration = (seconds: number): string => {
@@ -76,8 +88,23 @@ const handleReset = () => {
             </div>
             
             <div class="info-item">
-              <span class="info-label">File Size:</span>
+              <span class="info-label">Original Size:</span>
+              <span class="info-value">{{ formatFileSize(result.originalFileSize) }}</span>
+            </div>
+            
+            <div class="info-item">
+              <span class="info-label">Compressed Size:</span>
               <span class="info-value">{{ formatFileSize(result.fileSize) }}</span>
+            </div>
+            
+            <div class="info-item">
+              <span class="info-label">Compression Ratio:</span>
+              <span class="info-value">{{ getCompressionRatio(result.originalFileSize, result.fileSize) }}</span>
+            </div>
+            
+            <div class="info-item">
+              <span class="info-label">Size Reduction:</span>
+              <span class="info-value">{{ getSizeReduction(result.originalFileSize, result.fileSize) }}</span>
             </div>
             
             <div class="info-item">

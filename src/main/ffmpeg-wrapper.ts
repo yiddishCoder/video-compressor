@@ -11,6 +11,7 @@ export interface EncodingOptions {
   preset: string
   crf: number
   duration: number
+  originalFileSize: number
 }
 
 export interface EncodingProgress {
@@ -26,6 +27,7 @@ export interface EncodingResult {
   fileSize: number
   resolution: string
   duration: number
+  originalFileSize: number
 }
 
 export function encodeVideo(
@@ -34,7 +36,7 @@ export function encodeVideo(
   onComplete: (result: EncodingResult) => void,
   onError: (error: string) => void
 ): () => void {
-  const { inputPath, outputPath, targetHeight, preset, crf, duration } = options
+  const { inputPath, outputPath, targetHeight, preset, crf, duration, originalFileSize } = options
 
   const args = [
     '-i', inputPath,
@@ -108,7 +110,8 @@ export function encodeVideo(
           outputPath,
           fileSize,
           resolution,
-          duration
+          duration,
+          originalFileSize
         })
       } catch (error) {
         // Still call onComplete with basic info
@@ -116,7 +119,8 @@ export function encodeVideo(
           outputPath,
           fileSize: 0,
           resolution: `${targetHeight}p`,
-          duration
+          duration,
+          originalFileSize
         })
       }
     } else if (wasCancelled) {

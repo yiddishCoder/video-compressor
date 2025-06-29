@@ -13,6 +13,7 @@ interface VideoAPI {
       height: number
       duration: number
       aspectRatio: number
+      fileSize: number
     }
     resolutions?: Array<{
       label: string
@@ -28,6 +29,7 @@ interface VideoAPI {
     preset: string
     crf: number
     duration: number
+    originalFileSize: number
   }) => Promise<{ 
     success: boolean
     result?: {
@@ -35,6 +37,7 @@ interface VideoAPI {
       fileSize: number
       resolution: string
       duration: number
+      originalFileSize: number
     }
     error?: string 
   }>

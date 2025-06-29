@@ -1,5 +1,6 @@
 import { spawn } from 'child_process'
 import { getFfprobePath } from './binary-utils'
+import { statSync } from 'fs'
 
 const ffprobe = getFfprobePath()
 // import { existsSync } from 'fs'
@@ -9,6 +10,7 @@ export interface VideoInfo {
   height: number
   duration: number
   aspectRatio: number
+  fileSize: number
 }
 
 export interface ResolutionOption {
@@ -54,12 +56,22 @@ export async function getVideoInfo(filePath: string): Promise<VideoInfo> {
           const height = videoStream.height
           const duration = parseFloat(data.format.duration)
           const aspectRatio = width / height
+          
+          // Get file size from filesystem
+          let fileSize = 0
+          try {
+            const stats = statSync(filePath)
+            fileSize = stats.size
+          } catch (error) {
+            console.warn('Could not get file size:', error)
+          }
 
           resolve({
             width,
             height,
             duration,
-            aspectRatio
+            aspectRatio,
+            fileSize
           })
         } catch (error) {
           reject(new Error(`Failed to parse FFprobe output: ${error}`))
