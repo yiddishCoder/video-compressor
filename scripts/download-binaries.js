@@ -12,7 +12,7 @@ if (!fs.existsSync(binariesDir)) {
 
 // FFmpeg/ffprobe binary configurations for different platforms
 const platforms = {
-  'win32-x64': {
+  'win-x64': {
     ffmpeg: {
       url: 'https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip',
       archiveType: 'zip',

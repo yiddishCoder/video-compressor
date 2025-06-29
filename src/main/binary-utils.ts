@@ -14,7 +14,7 @@ export function getBinaryPath(binaryName: 'ffmpeg' | 'ffprobe'): string {
     // Determine the platform key for development
     let platformKey: string
     if (platform === 'win32') {
-      platformKey = 'win32-x64'
+      platformKey = 'win-x64'
     } else if (platform === 'darwin') {
       platformKey = arch === 'arm64' ? 'mac-arm64' : 'mac-x64'
     } else if (platform === 'linux') {
@@ -39,7 +39,7 @@ export function getBinaryPath(binaryName: 'ffmpeg' | 'ffprobe'): string {
     // For development builds, use the bin directory with platform subdirectories
     let platformKey: string
     if (platform === 'win32') {
-      platformKey = 'win32-x64'
+      platformKey = 'win-x64'
     } else if (platform === 'darwin') {
       platformKey = arch === 'arm64' ? 'mac-arm64' : 'mac-x64'
     } else if (platform === 'linux') {
